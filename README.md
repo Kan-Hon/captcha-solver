@@ -5,7 +5,7 @@ This challenge involves creating a simple AI model or algorithm to recognize cap
 
 
 ## Dataset
-The images are stored in this [input folder](sampleCaptchas\input) and their corresponding text are stored in [output folder](sampleCaptchas\output).
+The images are stored in this [input folder](sampleCaptchas/input) and their corresponding text are stored in [output folder](sampleCaptchas/output).
 
 The captcha images share the following characteristics:
 
@@ -17,7 +17,7 @@ The captcha images share the following characteristics:
 
 An example image is as follow:
 
-![Sample Image](sampleCaptchas\input\input00.jpg)
+![Sample Image](sampleCaptchas/input/input00.jpg)
 
 ## Approach
 ### Data Exploration
@@ -26,22 +26,22 @@ The colour intensity of the background noise in the captcha image is lower than 
 
 To determine the threshold value, a histogram is plotted based on the pixel intensity values for all captcha images. 
 
-![Histogram Plot of pixel intensity values in grayscale](assets\histogram_plot.png)
+![Histogram Plot of pixel intensity values in grayscale](assets/histogram_plot.png)
 
 From the above plot, we observe that the background pixel intensities are below 150, hence that will be used as the threshold criteria. 
 
 ### Data Proprocessing
 Image after thresholding:
 
-![Sample Captcha after thresholding](assets\threshold_captcha_image.png)
+![Sample Captcha after thresholding](assets/threshold_captcha_image.png)
 
 For character identification, `cv2.findContours` and `cv2.boundingRect` method is used to obtain the region of interest for each character in the captcha. This region of interest will be used to crop the characters for further processing. 
 
-<img src="assets\E.png" alt="E" width="100"/>
-<img src="assets\G.png" alt="G" width="100"/>
-<img src="assets\Y.png" alt="Y" width="100"/>
-<img src="assets\K.png" alt="K" width="100"/>
-<img src="assets\4.png" alt="4" width="100"/>
+<img src="assets/E.png" alt="E" width="100"/>
+<img src="assets/G.png" alt="G" width="100"/>
+<img src="assets/Y.png" alt="Y" width="100"/>
+<img src="assets/K.png" alt="K" width="100"/>
+<img src="assets/4.png" alt="4" width="100"/>
 
 
 ### Model Development
@@ -60,7 +60,7 @@ For characters that appear more than once in the dataset, the Hu moments of thes
 
 Furthermore, the algorithm is run on an unseen image `input100.jpg` and successfully obtained the correct result. 
 
-![Sample Image](sampleCaptchas\input\input100.jpg)
+![Sample Image](sampleCaptchas/input/input100.jpg)
 
 ## Files
 
